@@ -1,28 +1,20 @@
 # 550Project
-Folder Descriptions
-Colab Notebook: Notebook for Data Cleaning and Entity Resolution.
-Table Data: Data that are generated from cleaning.
+## Folder Descriptions
+***
+* Colab Notebook: Notebook for Data Cleaning and Entity Resolution.
+* Table Data: Data that are generated from cleaning.
 
-Tables
-GlobalTempCountry.csv
-Columns: AveTemp, Country, Year, Month, Day
-GlobalTempMajorCity.csv
-Columns: AveTemp, City, Country, Latitude, Longitude, Year, Month, Day
-GlobalTempState.csv
-Columns: AveTemp, State, Country, Year, Month, Day
-
-Country = CName
-
-wb_CO2_filtered.csv
-Columns: CCode, CName, SCode, SName, 1990, 1991,...,2008
-wb_CountryCode.csv (This tells us which country has which CCode)
-Columns: CCode, CName, Region, Group, Category
-wb_CountryPrec.csv
-Columns: CCode, January, February,..., December, Annual
-wb_CountryTemp.csv
-Columns: CCode, January, February, … , December, Annual
-wb_Res.csv
-CCode, CName, SCode, SName, Value, Year
+## Tables
+Table  | Columns
+------------- | -------------
+GlobalTempCountry.csv | AveTemp, Country, Year, Month, Day
+GlobalTempMajorCity.csv | AveTemp, City, Country, Latitude, Longitude, Year, Month, Day
+GlobalTempState.csv | AveTemp, State, Country, Year, Month, Day
+wb_CO2_filtered.csv | CCode, CName, SCode, SName, 1990, 1991,...,2008
+wb_CountryCode.csv | CCode, CName, Region, Group, Category
+wb_CountryPrec.csv | CCode, January, February,..., December, Annual
+wb_CountryTemp.csv | CCode, January, February, … , December, Annual
+wb_Res.csv | CCode, CName, SCode, SName, Value, Year
 
 1. Motivation for the idea/description of the problem the application solves (Grace)
 We are interested in analysis of carbon emission and climate data because climate change is one of the most important issues in today’s world. The effect of carbon emission on the environment has risen to the forefront of science news, and we are interested in developing an analysis tool to make sense of carbon emission and climate data to show the effects on climate change.
