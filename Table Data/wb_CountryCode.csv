@@ -1,0 +1,234 @@
+,Country code,Country name,Capital city,Region,Income group,Lending category
+0,EAP,East Asia & Pacific,..,Aggregates,Aggregates,Aggregates
+1,ECA,Europe & Central Asia,..,Aggregates,Aggregates,Aggregates
+2,EMU,Euro area,..,Aggregates,Aggregates,Aggregates
+3,HIC,High income,..,Aggregates,Aggregates,Aggregates
+4,LAC,Latin America & Caribbean,..,Aggregates,Aggregates,Aggregates
+5,LIC,Low income,..,Aggregates,Aggregates,Aggregates
+6,LMC,Lower middle income,..,Aggregates,Aggregates,Aggregates
+7,LMY,Low & middle income,..,Aggregates,Aggregates,Aggregates
+8,MIC,Middle income,..,Aggregates,Aggregates,Aggregates
+9,MNA,Middle East & North Africa,..,Aggregates,Aggregates,Aggregates
+10,SAS,South Asia,..,Aggregates,Aggregates,Aggregates
+11,SSA,Sub-Saharan Africa,..,Aggregates,Aggregates,Aggregates
+12,UMC,Upper middle income,..,Aggregates,Aggregates,Aggregates
+13,SID,Small island developing states,..,Aggregates,Aggregates,Aggregates
+14,WLD,World,..,Aggregates,Aggregates,Aggregates
+15,ABW,Aruba,Oranjestad,Latin America & Caribbean,High income: nonOECD,Not classified
+16,ADO,Andorra,Andorra la Vella,Europe & Central Asia,High income: nonOECD,Not classified
+17,AFG,Afghanistan,Kabul,South Asia,Low income,IDA
+18,AGO,Angola,Luanda,Sub-Saharan Africa,Lower middle income,IDA
+19,ALB,Albania,Tirane,Europe & Central Asia,Upper middle income,IBRD
+20,ARE,United Arab Emirates,Abu Dhabi,Middle East & North Africa,High income: nonOECD,Not classified
+21,ARG,Argentina,Buenos Aires,Latin America & Caribbean,Upper middle income,IBRD
+22,ARM,Armenia,Yerevan,Europe & Central Asia,Lower middle income,Blend
+23,ASM,American Samoa,Pago Pago,East Asia & Pacific,Upper middle income,Not classified
+24,ATG,Antigua and Barbuda,Saint John's,Latin America & Caribbean,Upper middle income,IBRD
+25,AUS,Australia,Canberra,East Asia & Pacific,High income: OECD,Not classified
+26,AUT,Austria,Vienna,Europe & Central Asia,High income: OECD,Not classified
+27,AZE,Azerbaijan,Baku,Europe & Central Asia,Upper middle income,IBRD
+28,BDI,Burundi,Bujumbura,Sub-Saharan Africa,Low income,IDA
+29,BEL,Belgium,Brussels,Europe & Central Asia,High income: OECD,Not classified
+30,BEN,Benin,Porto-Novo,Sub-Saharan Africa,Low income,IDA
+31,BFA,Burkina Faso,Ouagadougou,Sub-Saharan Africa,Low income,IDA
+32,BGD,Bangladesh,Dhaka,South Asia,Low income,IDA
+33,BGR,Bulgaria,Sofia,Europe & Central Asia,Upper middle income,IBRD
+34,BHR,Bahrain,Manama,Middle East & North Africa,High income: nonOECD,Not classified
+35,BHS,Bahamas,Nassau,Latin America & Caribbean,High income: nonOECD,Not classified
+36,BIH,Bosnia and Herzegovina,Sarajevo,Europe & Central Asia,Upper middle income,Blend
+37,BLR,Belarus,Minsk,Europe & Central Asia,Upper middle income,IBRD
+38,BLZ,Belize,Belmopan,Latin America & Caribbean,Lower middle income,IBRD
+39,BMU,Bermuda,Hamilton,North America,High income: nonOECD,Not classified
+40,BOL,Bolivia,La Paz,Latin America & Caribbean,Lower middle income,Blend
+41,BRA,Brazil,Brasilia,Latin America & Caribbean,Upper middle income,IBRD
+42,BRB,Barbados,Bridgetown,Latin America & Caribbean,High income: nonOECD,Not classified
+43,BRN,Brunei Darussalam,Bandar Seri Begawan,East Asia & Pacific,High income: nonOECD,Not classified
+44,BTN,Bhutan,Thimphu,South Asia,Lower middle income,IDA
+45,BWA,Botswana,Gaborone,Sub-Saharan Africa,Upper middle income,IBRD
+46,CAF,Central African Republic,Bangui,Sub-Saharan Africa,Low income,IDA
+47,CAN,Canada,Ottawa,North America,High income: OECD,Not classified
+48,CHE,Switzerland,Bern,Europe & Central Asia,High income: OECD,Not classified
+49,CHI,Channel Islands,..,Europe & Central Asia,High income: nonOECD,Not classified
+50,CHL,Chile,Santiago,Latin America & Caribbean,Upper middle income,IBRD
+51,CHN,China,Beijing,East Asia & Pacific,Upper middle income,IBRD
+52,CIV,Cote d'Ivoire,Yamoussoukro,Sub-Saharan Africa,Lower middle income,IDA
+53,CMR,Cameroon,Yaounde,Sub-Saharan Africa,Lower middle income,IDA
+54,COG,"Congo, Rep.",Brazzaville,Sub-Saharan Africa,Lower middle income,IDA
+55,COK,Cook Islands,Avarua,East Asia & Pacific,Upper middle income,Not classified
+56,COL,Colombia,Bogota,Latin America & Caribbean,Upper middle income,IBRD
+57,COM,Comoros,Moroni,Sub-Saharan Africa,Low income,IDA
+58,CPV,Cape Verde,Praia,Sub-Saharan Africa,Lower middle income,Blend
+59,CRI,Costa Rica,San Jose,Latin America & Caribbean,Upper middle income,IBRD
+60,CUB,Cuba,Havana,Latin America & Caribbean,Upper middle income,Not classified
+61,CUW,Curacao,Willemstad,Latin America & Caribbean,High income: nonOECD,Not classified
+62,CYM,Cayman Islands,George Town,Latin America & Caribbean,High income: nonOECD,Not classified
+63,CYP,Cyprus,Nicosia,Europe & Central Asia,High income: nonOECD,Not classified
+64,CZE,Czech Republic,Prague,Europe & Central Asia,High income: OECD,Not classified
+65,DEU,Germany,Berlin,Europe & Central Asia,High income: OECD,Not classified
+66,DJI,Djibouti,Djibouti,Middle East & North Africa,Lower middle income,IDA
+67,DMA,Dominica,Roseau,Latin America & Caribbean,Upper middle income,Blend
+68,DNK,Denmark,Copenhagen,Europe & Central Asia,High income: OECD,Not classified
+69,DOM,Dominican Republic,Santo Domingo,Latin America & Caribbean,Upper middle income,IBRD
+70,DZA,Algeria,Algiers,Middle East & North Africa,Upper middle income,IBRD
+71,ECU,Ecuador,Quito,Latin America & Caribbean,Upper middle income,IBRD
+72,EGY,Egypt,Cairo,Middle East & North Africa,Lower middle income,IBRD
+73,ERI,Eritrea,Asmara,Sub-Saharan Africa,Low income,IDA
+74,ESP,Spain,Madrid,Europe & Central Asia,High income: OECD,Not classified
+75,EST,Estonia,Tallinn,Europe & Central Asia,High income: OECD,Not classified
+76,ETH,Ethiopia,Addis ababa,Sub-Saharan Africa,Low income,IDA
+77,FIN,Finland,Helsinki,Europe & Central Asia,High income: OECD,Not classified
+78,FJI,Fiji,Suva,East Asia & Pacific,Lower middle income,IBRD
+79,FRA,France,Paris,Europe & Central Asia,High income: OECD,Not classified
+80,FRO,Faeroe Islands,Torshavn,Europe & Central Asia,High income: nonOECD,Not classified
+81,FSM,"Micronesia, Fed. Sts.",Palikir,East Asia & Pacific,Lower middle income,IDA
+82,GAB,Gabon,Libreville,Sub-Saharan Africa,Upper middle income,IBRD
+83,GBR,United Kingdom,London,Europe & Central Asia,High income: OECD,Not classified
+84,GEO,Georgia,Tbilisi,Europe & Central Asia,Lower middle income,Blend
+85,GHA,Ghana,Accra,Sub-Saharan Africa,Lower middle income,IDA
+86,GIB,Gibraltar,Gibraltar,Europe & Central Asia,High income: nonOECD,Not classified
+87,GIN,Guinea,Conakry,Sub-Saharan Africa,Low income,IDA
+88,GMB,Gambia,Banjul,Sub-Saharan Africa,Low income,IDA
+89,GNB,Guinea Bissau,Bissau,Sub-Saharan Africa,Low income,IDA
+90,GNQ,Equatorial Guinea,Malabo,Sub-Saharan Africa,High income: nonOECD,IBRD
+91,GRC,Greece,Athens,Europe & Central Asia,High income: OECD,Not classified
+92,GRD,Grenada,Saint George's,Latin America & Caribbean,Upper middle income,Blend
+93,GRL,Greenland,Nuuk,Europe & Central Asia,High income: nonOECD,Not classified
+94,GTM,Guatemala,Guatemala City,Latin America & Caribbean,Lower middle income,IBRD
+95,GUM,Guam,Agana,East Asia & Pacific,High income: nonOECD,Not classified
+96,GUY,Guyana,Georgetown,Latin America & Caribbean,Lower middle income,IDA
+97,HKG,Hong Kong,..,East Asia & Pacific,High income: nonOECD,Not classified
+98,HND,Honduras,Tegucigalpa,Latin America & Caribbean,Lower middle income,IDA
+99,HRV,Croatia,Zagreb,Europe & Central Asia,High income: nonOECD,IBRD
+100,HTI,Haiti,Port-au-Prince,Latin America & Caribbean,Low income,IDA
+101,HUN,Hungary,Budapest,Europe & Central Asia,High income: OECD,Not classified
+102,IDN,Indonesia,Jakarta,East Asia & Pacific,Lower middle income,IBRD
+103,IMY,Isle of Man,Douglas,Europe & Central Asia,High income: nonOECD,Not classified
+104,IND,India,New Delhi,South Asia,Lower middle income,Blend
+105,IRL,Ireland,Dublin,Europe & Central Asia,High income: OECD,Not classified
+106,IRN,Iran,Tehran,Middle East & North Africa,Upper middle income,IBRD
+107,IRQ,Iraq,Baghdad,Middle East & North Africa,Lower middle income,IBRD
+108,ISL,Iceland,Reykjavik,Europe & Central Asia,High income: OECD,Not classified
+109,ISR,Israel,..,Middle East & North Africa,High income: OECD,Not classified
+110,ITA,Italy,Rome,Europe & Central Asia,High income: OECD,Not classified
+111,JAM,Jamaica,Kingston,Latin America & Caribbean,Upper middle income,IBRD
+112,JOR,Jordan,Amman,Middle East & North Africa,Upper middle income,IBRD
+113,JPN,Japan,Tokyo,East Asia & Pacific,High income: OECD,Not classified
+114,KAZ,Kazakhstan,Astana,Europe & Central Asia,Upper middle income,IBRD
+115,KEN,Kenya,Nairobi,Sub-Saharan Africa,Low income,IDA
+116,KGZ,Kyrgyzstan,Bishkek,Europe & Central Asia,Low income,IDA
+117,KHM,Cambodia,Phnom Penh,East Asia & Pacific,Low income,IDA
+118,KIR,Kiribati,Tarawa,East Asia & Pacific,Lower middle income,IDA
+119,KNA,St. Kitts and Nevis,Basseterre,Latin America & Caribbean,Upper middle income,IBRD
+120,KOR,South Korea,Seoul,East Asia & Pacific,High income: OECD,IBRD
+121,KSV,Kosovo,Pristina,Europe & Central Asia,Lower middle income,IDA
+122,KWT,Kuwait,Kuwait City,Middle East & North Africa,High income: nonOECD,Not classified
+123,LAO,Laos,Vientiane,East Asia & Pacific,Lower middle income,IDA
+124,LBN,Lebanon,Beirut,Middle East & North Africa,Upper middle income,IBRD
+125,LBR,Liberia,Monrovia,Sub-Saharan Africa,Low income,IDA
+126,LBY,Libya,Tripoli,Middle East & North Africa,Upper middle income,IBRD
+127,LCA,St. Lucia,Castries,Latin America & Caribbean,Upper middle income,Blend
+128,LIE,Liechtenstein,Vaduz,Europe & Central Asia,High income: nonOECD,Not classified
+129,LKA,Sri Lanka,Colombo,South Asia,Lower middle income,Blend
+130,LSO,Lesotho,Maseru,Sub-Saharan Africa,Lower middle income,IDA
+131,LTU,Lithuania,Vilnius,Europe & Central Asia,Upper middle income,Not classified
+132,LUX,Luxembourg,Luxembourg,Europe & Central Asia,High income: OECD,Not classified
+133,LVA,Latvia,Riga,Europe & Central Asia,Upper middle income,Not classified
+134,MAC,Macau,..,East Asia & Pacific,High income: nonOECD,Not classified
+135,MAF,Saint Martin,Marigot,Latin America & Caribbean,High income: nonOECD,Not classified
+136,MAR,Morocco,Rabat,Middle East & North Africa,Lower middle income,IBRD
+137,MCO,Monaco,Monaco,Europe & Central Asia,High income: nonOECD,Not classified
+138,MDA,Moldova,Chisinau,Europe & Central Asia,Lower middle income,IDA
+139,MDG,Madagascar,Antananarivo,Sub-Saharan Africa,Low income,IDA
+140,MDV,Maldives,Male,South Asia,Upper middle income,IDA
+141,MEX,Mexico,Mexico City,Latin America & Caribbean,Upper middle income,IBRD
+142,MHL,Marshall Islands,Majuro,East Asia & Pacific,Lower middle income,IDA
+143,MKD,Macedonia,Skopje,Europe & Central Asia,Upper middle income,IBRD
+144,MLI,Mali,Bamako,Sub-Saharan Africa,Low income,IDA
+145,MLT,Malta,Valletta,Middle East & North Africa,High income: nonOECD,Not classified
+146,MMR,Myanmar,Naypyidaw,East Asia & Pacific,Low income,IDA
+147,MNE,Montenegro,Podgorica,Europe & Central Asia,Upper middle income,IBRD
+148,MNG,Mongolia,Ulaanbaatar,East Asia & Pacific,Lower middle income,IDA
+149,MNP,Northern Mariana Islands,Saipan,East Asia & Pacific,High income: nonOECD,Not classified
+150,MOZ,Mozambique,Maputo,Sub-Saharan Africa,Low income,IDA
+151,MRT,Mauritania,Nouakchott,Sub-Saharan Africa,Lower middle income,IDA
+152,MUS,Mauritius,Port Louis,Sub-Saharan Africa,Upper middle income,IBRD
+153,MWI,Malawi,Lilongwe,Sub-Saharan Africa,Low income,IDA
+154,MYS,Malaysia,Kuala Lumpur,East Asia & Pacific,Upper middle income,IBRD
+155,MYT,Mayotte,Mamoudzou,Sub-Saharan Africa,Upper middle income,Not classified
+156,NAM,Namibia,Windhoek,Sub-Saharan Africa,Upper middle income,IBRD
+157,NCL,New Caledonia,Noum'ea,East Asia & Pacific,High income: nonOECD,Not classified
+158,NER,Nigeria,Niamey,Sub-Saharan Africa,Low income,IDA
+159,NGA,Nigeria,Abuja,Sub-Saharan Africa,Lower middle income,IDA
+160,NIC,Nicaragua,Managua,Latin America & Caribbean,Lower middle income,IDA
+161,NIU,Niue,Alofi,East Asia & Pacific,Upper middle income,Not classified
+162,NLD,Netherlands,Amsterdam,Europe & Central Asia,High income: OECD,Not classified
+163,NOR,Norway,Oslo,Europe & Central Asia,High income: OECD,Not classified
+164,NPL,Nepal,Kathmandu,South Asia,Low income,IDA
+165,NRU,Nauru,..,East Asia & Pacific,Upper middle income,Not classified
+166,NZL,New Zealand,Wellington,East Asia & Pacific,High income: OECD,Not classified
+167,OMN,Oman,Muscat,Middle East & North Africa,High income: nonOECD,Not classified
+168,PAK,Pakistan,Islamabad,South Asia,Lower middle income,Blend
+169,PAN,Panama,Panama City,Latin America & Caribbean,Upper middle income,IBRD
+170,PER,Peru,Lima,Latin America & Caribbean,Upper middle income,IBRD
+171,PHL,Philippines,Manila,East Asia & Pacific,Lower middle income,IBRD
+172,PLW,Palau,Koror,East Asia & Pacific,Upper middle income,IBRD
+173,PNG,Papua New Guinea,Port Moresby,East Asia & Pacific,Lower middle income,Blend
+174,POL,Poland,Warsaw,Europe & Central Asia,High income: OECD,IBRD
+175,PRI,Puerto Rico,San Juan,Latin America & Caribbean,High income: nonOECD,Not classified
+176,PRK,North Korea,Pyongyang,East Asia & Pacific,Low income,Not classified
+177,PRT,Portugal,Lisbon,Europe & Central Asia,High income: OECD,Not classified
+178,PRY,Paraguay,Asuncion,Latin America & Caribbean,Lower middle income,IBRD
+179,PYF,French Polynesia,Papeete,East Asia & Pacific,High income: nonOECD,Not classified
+180,QAT,Qatar,Doha,Middle East & North Africa,High income: nonOECD,Not classified
+181,ROM,Romania,Bucharest,Europe & Central Asia,Upper middle income,IBRD
+182,RUS,Russia,Moscow,Europe & Central Asia,Upper middle income,IBRD
+183,RWA,Rwanda,Kigali,Sub-Saharan Africa,Low income,IDA
+184,SAU,Saudi Arabia,Riyadh,Middle East & North Africa,High income: nonOECD,Not classified
+185,SDN,Sudan,Khartoum,Sub-Saharan Africa,Lower middle income,IDA
+186,SEN,Senegal,Dakar,Sub-Saharan Africa,Lower middle income,IDA
+187,SGP,Singapore,Singapore,East Asia & Pacific,High income: nonOECD,Not classified
+188,SLB,Solomon Islands,Honiara,East Asia & Pacific,Lower middle income,IDA
+189,SLE,Sierra Leone,Freetown,Sub-Saharan Africa,Low income,IDA
+190,SLV,El Salvador,San Salvador,Latin America & Caribbean,Lower middle income,IBRD
+191,SMR,San Marino,San Marino,Europe & Central Asia,High income: nonOECD,Not classified
+192,SOM,Somalia,Mogadishu,Sub-Saharan Africa,Low income,IDA
+193,SRB,Serbia,Belgrade,Europe & Central Asia,Upper middle income,IBRD
+194,STP,Sao Tome and Principe,Sao Tome,Sub-Saharan Africa,Lower middle income,IDA
+195,SUR,Suriname,Paramaribo,Latin America & Caribbean,Upper middle income,IBRD
+196,SVK,Slovakia,Bratislava,Europe & Central Asia,High income: OECD,Not classified
+197,SVN,Slovenia,Ljubljana,Europe & Central Asia,High income: OECD,Not classified
+198,SWE,Sweden,Stockholm,Europe & Central Asia,High income: OECD,Not classified
+199,SWZ,Swaziland,Mbabane,Sub-Saharan Africa,Lower middle income,IBRD
+200,SXM,Sint Maarten (Dutch part),Philipsburg,Latin America & Caribbean,High income: nonOECD,Not classified
+201,SYC,Seychelles,Victoria,Sub-Saharan Africa,Upper middle income,IBRD
+202,SYR,Syria,Damascus,Middle East & North Africa,Lower middle income,IBRD
+203,TCA,Turks and Caicos Islands,Grand Turk,Latin America & Caribbean,High income: nonOECD,Not classified
+204,TCD,Chad,N'Djamena,Sub-Saharan Africa,Low income,IDA
+205,TGO,Togo,Lome,Sub-Saharan Africa,Low income,IDA
+206,THA,Thailand,Bangkok,East Asia & Pacific,Upper middle income,IBRD
+207,TJK,Tajikistan,Dushanbe,Europe & Central Asia,Low income,IDA
+208,TKM,Turkmenistan,Ashgabat,Europe & Central Asia,Lower middle income,IBRD
+209,TMP,Timor Leste,Dili,East Asia & Pacific,Lower middle income,IDA
+210,TON,Tonga,Nuku'alofa,East Asia & Pacific,Lower middle income,IDA
+211,TTO,Trinidad and Tobago,Port-of-Spain,Latin America & Caribbean,High income: nonOECD,IBRD
+212,TUN,Tunisia,Tunis,Middle East & North Africa,Upper middle income,IBRD
+213,TUR,Turkey,Ankara,Europe & Central Asia,Upper middle income,IBRD
+214,TUV,Tuvalu,Funafuti,East Asia & Pacific,Lower middle income,Not classified
+215,TZA,Tanzania,Dodoma,Sub-Saharan Africa,Low income,IDA
+216,UGA,Uganda,Kampala,Sub-Saharan Africa,Low income,IDA
+217,UKR,Ukraine,Kiev,Europe & Central Asia,Lower middle income,IBRD
+218,URY,Uruguay,Montevideo,Latin America & Caribbean,Upper middle income,IBRD
+219,USA,United States,Washington D.C.,North America,High income: OECD,Not classified
+220,UZB,Uzbekistan,Tashkent,Europe & Central Asia,Lower middle income,Blend
+221,VCT,St. Vincent and the Grenadines,Kingstown,Latin America & Caribbean,Upper middle income,Blend
+222,VEN,Venezuela,Caracas,Latin America & Caribbean,Upper middle income,IBRD
+223,VIR,Virgin Islands,Charlotte Amalie,Latin America & Caribbean,High income: nonOECD,Not classified
+224,VNM,Vietnam,Hanoi,East Asia & Pacific,Lower middle income,Blend
+225,VUT,Vanuatu,Port-Vila,East Asia & Pacific,Lower middle income,IDA
+226,WBG,West Bank and Gaza,..,Middle East & North Africa,Lower middle income,Not classified
+227,WSM,Samoa,Apia,East Asia & Pacific,Lower middle income,IDA
+228,YEM,Yemen,Sana'a,Middle East & North Africa,Lower middle income,IDA
+229,ZAF,South Africa,Pretoria,Sub-Saharan Africa,Upper middle income,IBRD
+230,ZAR,"Congo, Dem. Rep.",Kinshasa,Sub-Saharan Africa,Low income,IDA
+231,ZMB,Zambia,Lusaka,Sub-Saharan Africa,Lower middle income,IDA
+232,ZWE,Zimbabwe,Harare,Sub-Saharan Africa,Low income,Blend
