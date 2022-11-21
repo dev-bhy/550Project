@@ -1,4 +1,8 @@
 # 550Project
+Folder Descriptions
+Colab Notebook: Notebook for Data Cleaning and Entity Resolution.
+
+
 Tables
 GlobalTempCountry.csv
 Columns: AveTemp, Country, Year, Month, Day
