@@ -1,7 +1,7 @@
 # 550Project
 Folder Descriptions
 Colab Notebook: Notebook for Data Cleaning and Entity Resolution.
-
+Table Data: Data that are generated from cleaning.
 
 Tables
 GlobalTempCountry.csv
