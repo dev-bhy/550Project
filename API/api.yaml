@@ -1,0 +1,319 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'CIS 550 Project'
+  description: 'CIS 550 Project API'
+
+paths:
+  /avgtemp:
+    parameters:
+      - name: limit
+        description: the amount of top countries' average temperature to retreive
+        in: query
+        required: false  
+        schema:
+          type: integer  
+    get:
+      summary: Annual temperature and country name of countries with the highest annual temperature
+      responses:
+        '200':
+          description: annual average temperature for hottest ${limit} countries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    country_name:
+                      type: string
+                      example: "Mali"
+                    temperature:
+                      type: number
+                      example: 28.2999          
+        404:
+          description: No spacecraft found for the provided `spacecraftId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /avgprec:
+    get:
+      summary: countries with the most precipitation
+      responses:
+        200:
+           description: annual average precipitation for all countries ordered by precipitation
+           content:
+             application/json:
+               schema:
+                 type: array
+                 items:
+                  properties:
+                    region:
+                      type: string
+                      example: "Costa Rica"
+                    average_precipitation:
+                      type: number
+                      example: 3268.26611328125
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /tempchangeincome:
+    get:
+      summary: Average temperature change based on income level
+      responses:
+        200:
+          description: temperature change associated with countries with levels of income
+          content:
+            application/json:
+               schema:
+                 type: array
+                 items:
+                  properties:
+                    income_category:
+                      type: string
+                      example: "High income nonOECD"
+                    temperature_change:
+                      type: number
+                      example: 0.22316667437553406
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /regioncarbon:
+    get:
+      summary: Increase in carbon emission (per capita) from 1990 to 2008, ranked by world regions
+      responses:
+        200:
+          description: Increase in carbon emission (per capita) from 1990 to 2008, ranked by world regions
+          content:
+            application/json:
+               schema:
+                 type: array
+                 items:
+                  properties:
+                    region:
+                      type: string
+                      example: "Sub-Saharan Africa"
+                    avg_change_in_emissions:
+                      type: number
+                      example: 7510064.285626094
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /incomecarbon:
+    get:
+      summary: Change in carbon emission (per capita) from 1990 to 2008 in low income, lower middle income, upper middle income income, and high-income countries
+      responses:
+        200:
+          description: Change in carbon emission (per capita) from 1990 to 2008 in low income, lower middle income, upper middle income income, and high-income countries
+          content:
+            application/json:
+               schema:
+                 type: array
+                 items:
+                  properties:
+                    income_category:
+                      type: string
+                      example: "Lower middle income"
+                    avg_change_in_emissions:
+                      type: number
+                      example: 7510064.285626094
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /highincomecarbon:
+    get:
+      summary: Carbon emission trends of high-income countries
+      responses:
+        200:
+          description: Carbon emission trends of high-income countries
+          content:
+            application/json:
+               schema:
+                 type: array
+                 items:
+                  properties:
+                    Country_name:
+                      type: string
+                      example: "Aruba"
+                    e1990:
+                      type: number
+                      example: 2288.21
+                    e1991:
+                      type: number
+                      example: 2288.21
+                    e1992:
+                      type: number
+                      example: 2288.21
+                    e1993:
+                      type: number
+                      example: 2288.21
+                    e1994:
+                      type: number
+                      example: 2288.21
+                    e1995:
+                      type: number
+                      example: 2288.21
+                    e1996:
+                      type: number
+                      example: 2288.21
+                    e1997:
+                      type: number
+                      example: 2288.21
+                    e1998:
+                      type: number
+                      example: 2288.21
+                    e1999:
+                      type: number
+                      example: 2288.21
+                    e2000:
+                      type: number
+                      example: 2288.21
+                    e2001:
+                      type: number
+                      example: 2288.21
+                    e2002:
+                      type: number
+                      example: 2288.21
+                    e2003:
+                      type: number
+                      example: 2288.21
+                    e2004:
+                      type: number
+                      example: 2288.21
+                    e2005:
+                      type: number
+                      example: 2288.21
+                    e2006:
+                      type: number
+                      example: 2288.21
+                    e2007:
+                      type: number
+                      example: 2288.21
+                    e2008:
+                      type: number
+                      example: 2288.21
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /tempprec:
+    get:
+      summary: Climate change leads to more severe droughts when temperature are higher in months of low precipitation. Find countries with highest temperature among the top 20 countries with the least annual precipitation
+      responses:
+        200:
+          description: Climate change leads to more severe droughts when temperature are higher in months of low precipitation. Find countries with highest temperature among the top 20 countries with the least annual precipitation
+          content:
+            application/json:
+               schema:
+                 type: array
+                 items:
+                  properties:
+                    country_name:
+                      type: string
+                      example: "Mauritania"
+                    annual_temperature:
+                      type: number
+                      example: 27.6929
+                    precipitation: 
+                      type: number
+                      example: 90.00475311279297
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /tempcarbon:
+    get:
+      summary: Countries that do not contribute significantly to carbon emissions but are paying the price of climate change
+      responses:
+        200:
+          description: rank countries with the largest change in temperature, whose carbon emission is not in the top 100 countries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results1:
+                    type: array
+                    items:
+                      properties:
+                        country_name:
+                          type: string
+                          example: "Kyrgyzstan"
+                        temp_change:
+                          type: number
+                          example: 1.8155833284060159
+                  results2:
+                    type: array
+                    items: 
+                      properties:
+                        country_name:
+                          type: string
+                          example: "Kyrgyzstan"
+                        emissions_in_comparison:
+                          type: number
+                          example: 10454.704330419501
+                        temp_change:
+                          type: number
+                          example: 1.8155833284060159                   
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /avgtempchange:
+    get:
+      summary: From 1900 to 2008, the top countries that are most affected by climate change (in terms of changes in temperature) ordered by change in temperature
+      responses:
+        200:
+          description: From 1900 to 2008, the top countries that are most affected by climate change (in terms of changes in temperature) ordered by change in temperature
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    country_name:
+                      type: string
+                      example: "Mauritania"
+                    Diff:
+                      type: number
+                      example: 0.038166840871173946
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
