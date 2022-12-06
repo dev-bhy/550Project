@@ -243,7 +243,6 @@ async function getTempAndCarbonEmission(req, res) {
     GROUP BY g.country_name
     ORDER BY (t2008.temperature-t1900.temperature) DESC;`
     let results1;
-    let results2;
     connection.query(sql1, (error, results) => {
         //console.log(error)
         results && (results1 = results)
