@@ -15,6 +15,7 @@ connection.connect();
 
 // Annual temperature and country name of countries with the highest annual temperature
 async function getCountryAvgTemp(req, res) {
+  console.log("got here")
   const params = req.query;
   const { limit = 10 } = params;
   try {
