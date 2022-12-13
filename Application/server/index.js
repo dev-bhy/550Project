@@ -17,7 +17,6 @@ app.get('/tempprec', routes.getCountryTempAndPrec);
 app.get('/tempcarbon', routes.getTempAndCarbonEmission);
 app.get('/avgtempchange', routes.getCountryAvgTempChange);
 app.get('/', (req, res) => {
-    console.log(req.url)
 })
 
 app.listen(port, () => {

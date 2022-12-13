@@ -15,7 +15,6 @@ connection.connect();
 
 // Annual temperature and country name of countries with the highest annual temperature
 async function getCountryAvgTemp(req, res) {
-  console.log("got here")
   const params = req.query;
   const { limit = 10 } = params;
   try {
@@ -265,16 +264,19 @@ async function getTempAndCarbonEmission(req, res) {
 
 //From 1900 to 2008, the top countries that are most affected by climate change (in terms of changes in temperature) ordered by change in temperature
 async function getCountryAvgTempChange(req, res) {
+  let { startYear, endYear} = req.query;
+  !startYear &&  (startYear = 1991)
+  !endYear &&  (endYear = 2008);
   try {
     const sql = `WITH temp_1900 AS (SELECT AVG(AveTemp) AS temperature, t.Country AS country_name
         FROM TempCountry t
         INNER JOIN WB_CountryCode c ON t.Country = c.CName
-        WHERE t.Year = 1900
+        WHERE t.Year = ${startYear}
         GROUP BY t.Country),
     temp_2008 AS(SELECT t.Country AS country_name, AVG(AveTemp) AS temperature
         FROM TempCountry t
         INNER JOIN WB_CountryCode c ON t.Country = c.CName
-        WHERE t.Year = 2008
+        WHERE t.Year = ${endYear}
         GROUP BY t.Country)
     SELECT temp_1900.country_name, (temp_2008.temperature - temp_1900.temperature) AS Diff
     FROM temp_1900
