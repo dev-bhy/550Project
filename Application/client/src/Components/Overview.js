@@ -22,7 +22,8 @@ const Overview = props => {
                                  dict={dictionary}  
                                  minColor={'#DAFFBE'} 
                                  maxColor={'#003d06'}
-                                 defaultColor={'#8F928C'}/>
+                                 defaultColor={'#8F928C'}
+                                 units={'\u00B0 C'}/>
                         
             case 'Prec':
                 return <WorldMap minValue = {minValue} 
@@ -30,14 +31,16 @@ const Overview = props => {
                                  dict={dictionary}  
                                  minColor={'#6ec5eb'} 
                                  maxColor={'#002b3d'}
-                                 defaultColor={'#8F928C'}/>
+                                 defaultColor={'#8F928C'}
+                                 units={' in'}/>
             case 'TempChange':
                 return <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
                                  minColor={'#f8ff96'} 
                                  maxColor={'#aeba00'}
-                                 defaultColor={'#8F928C'}/>
+                                 defaultColor={'#8F928C'}
+                                 units={'%'}/>
             default :
                 return <p>None Selected</p>
         }
@@ -160,7 +163,7 @@ const Overview = props => {
         <>
         {/*renderAvgTemps()*/}
         {renderMap()}
-        <ReactTooltip fontSize='2px' place='right'/>
+        
         <button onClick={() => {
             updateCurrentDataType('Temp');
             getData('Temp')
