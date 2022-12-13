@@ -45,3 +45,33 @@ export const getTempChange = async (startYear, endYear) => {
     }
 }
 
+export const getTempChangeAndIncome = async () => {
+    try{
+        const res = await axios.get(`${URL}/tempchangeincome`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+export const getCountryCarbonEmissionByIncome = async () => {
+    try{
+        const res = await axios.get(`${URL}/incomecarbon`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
