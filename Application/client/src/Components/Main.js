@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Overview from './Overview.js'
+import Correlation from './Correlation/Correlation.js'
 
 
 const renderCurrentPage = currentPage => {
@@ -7,7 +8,7 @@ const renderCurrentPage = currentPage => {
         case 0:
             return <Overview />
         case 1:
-            return <p>Correlation</p>
+            return <Correlation/>
         default:
             return <p>No page selected</p>
     }
