@@ -1,0 +1,21 @@
+.left{
+    float: left;
+    width: 60%;
+    height: 100px;
+}
+.right{
+    float: right;
+    width:33%;
+    margin-left: 200px;
+    margin-right: 100px;
+}
+.notes{
+    float: left;
+    width: 60%;
+    margin-left: 200px;
+    margin-right: 100px;
+}
+.charttitle{
+    color: blue;
+    font-size: 20px;
+}
