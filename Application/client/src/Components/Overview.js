@@ -76,7 +76,7 @@ const Overview = props => {
                                  units={'\u00B0 C'}
                                  prefix={'+'}
                                  colorScale={colorScaleLinear}/>
-                        <h3>Average World Temperature Change: {computeAverageTempChange(countryData)}%</h3>
+                        <h3>Average World Temperature Change: {computeAverageTempChange(countryData)} {'\u00B0'}C</h3>
                                  </>)
             case 'Income':
                 return (<>
