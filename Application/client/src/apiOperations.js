@@ -149,3 +149,18 @@ export const getFloodDrought = async () => {
         console.log(error);
     }
 }
+
+export const getCertifiedReductions = async () => {
+    try{
+        const res = await axios.get(`${URL}/certifiedreductions`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}

@@ -321,7 +321,7 @@ async function getCountryAvgTempChange(req, res) {
 }
 
 
-// Countries with the most precipitation
+// Countries with flood drought
 async function getFloodDrought(req, res) {
   try {
     const sql = `WITH c_list AS (SELECT CCode, CName, SCode, Value AS droughts_floods_2009
@@ -346,6 +346,27 @@ async function getFloodDrought(req, res) {
   }
 }
 
+async function getCertifiedReductions(req, res) {
+  try {
+    const sql = `WITH c_list AS (SELECT CName, CCode, SCode, Value AS certified_reduction
+      FROM WB_Res r
+      WHERE SCode = "EN.CLC.ICER" AND Year = 2011)
+      SELECT c.CName, c.certified_reduction, (e2008-e2000) AS diff_in_emissions
+      FROM c_list c INNER JOIN WB_Emissions e ON c.CCode = e.CCode
+      GROUP BY c.CCode
+      ORDER BY c.certified_reduction DESC;`;
+
+    connection.query(sql, (error, results) => {
+        results && res.json({ results})
+        error && res.json({error})
+    })
+  } catch (error) {
+    console.log(error)
+    res.json({ error: error })
+  }
+}
+
+
 module.exports = {
     getCountryAvgTemp,
     getCountryPrec,
@@ -357,7 +378,8 @@ module.exports = {
     getTempAndCarbonEmission,
     getCountryAvgTempChange,
     getCountryCarbonEmissionInLowIncome,
-    getFloodDrought
+    getFloodDrought,
+    getCertifiedReductions
 }
 
 

@@ -15,7 +15,7 @@ const CorrelationLabel = props => {
     <g>
         <Dot cx={props.cx} cy={props.cy} r={5} />
         <g transform={`translate(${props.cx},${props.cy})`}>
-          <text x={10} y={0} dy={5} fontSize="8" textAnchor="bottom">{props.income_category}</text>
+          <text x={10} y={0} dy={5} fontSize="10" textAnchor="bottom">{props.income_category}</text>
         </g>
       </g>
     )

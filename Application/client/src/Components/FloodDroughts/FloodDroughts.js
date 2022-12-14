@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import './IncomeBrackets.css';
-import ScatterChartCorrelation from './IncomeBracketsComponents/ScatterChart.js'
-import TableImpactedCountries from './IncomeBracketsComponents/TableImpactedCountries.js'
-import TimeSeriesByIncome from './IncomeBracketsComponents/TimeSeriesByIncome.js'
+import './FloodDroughts.css';
+import FloodDroughtsScatterChart from './FloodDroughtsComponents/FloodDroughtsScatterChart'
 
 const FloodDroughts = props => {
     return (
         <>
-        <ScatterChartCorrelation/>
-        <TableImpactedCountries/>
-        <TimeSeriesByIncome/>
+        <FloodDroughtsScatterChart/>
         </>
     )
 }
@@ -17,4 +13,4 @@ const FloodDroughts = props => {
 
 
 
-export default IncomeBrackets
+export default FloodDroughts

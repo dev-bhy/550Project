@@ -18,6 +18,8 @@ app.get('/tempprec', routes.getCountryTempAndPrec);
 app.get('/tempcarbon', routes.getTempAndCarbonEmission);
 app.get('/avgtempchange', routes.getCountryAvgTempChange);
 app.get('/flooddrought', routes.getFloodDrought);
+app.get('/certifiedreductions', routes.getCertifiedReductions);
+
 
 app.get('/', (req, res) => {
 })

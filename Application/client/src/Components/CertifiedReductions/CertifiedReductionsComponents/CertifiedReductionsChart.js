@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import {getFloodDrought} from '../../../apiOperations'
-import '../FloodDroughts.css';
+import {getCertifiedReductions} from '../../../apiOperations'
+import '../CertifiedReductions.css';
 import { ScatterChart, Scatter, XAxis, 
     YAxis, CartesianGrid, LabelList, ResponsiveContainer, Label } from 'recharts';
 
-const FloodDroughtScatterChart = props => {
-    const [floodDrought, setFloodDrought] = useState([]);
+const CertifiedReductionsChart = props => {
+    const [certifiedReductions, setcertifiedReductions] = useState([]);
     
     useEffect(() => {
         
         const setInitialData = async () => {
-            const floodDrought = await getFloodDrought();
-            setFloodDrought(floodDrought);
+            const certifiedReductions = await getCertifiedReductions();
+            setcertifiedReductions(certifiedReductions);
         }
         
         setInitialData().catch(console.error);
@@ -27,7 +27,7 @@ const FloodDroughtScatterChart = props => {
         <div style={{
             display: 'block', width: 700, padding: 30
         }}>
-        <h4>Change in Temperature 1900-2008 vs. Droughts/ Floods in 2009</h4>
+        <h4>Certified Reduction Count vs. Diff in Emissions 2000 - 2008</h4>
         <ScatterChart width={600} height={400} margin={{
             top: 30,
             right: 30,
@@ -35,23 +35,23 @@ const FloodDroughtScatterChart = props => {
             left: 30
           }}>
             <CartesianGrid />
-            <XAxis type="number" dataKey="percent_temp_change">
+            <XAxis type="number" dataKey="diff_in_emissions">
                 <Label
-                    value={"Temp Change % 1900-2008"}
+                    value={"Diff in Emissions 2000-2008"}
                     position="bottom"
                     style={{ textAnchor: "middle" }}
                     buffer={10}
                 />
             </XAxis>
-            <YAxis type="number" dataKey="droughts_floods_2009">
+            <YAxis type="number" dataKey="certified_reduction">
                 <Label
-                    value={"Droughts/ Floods 2009"}
+                    value={"Certified Reduction Count"}
                     position="left"
                     angle={-90}
                     style={{ textAnchor: "middle" }}
                 />
             </YAxis>
-            <Scatter data={floodDrought} fill="green"></Scatter>
+            <Scatter data={certifiedReductions} fill="green"></Scatter>
         </ScatterChart>
         <p></p>
         
@@ -63,4 +63,4 @@ const FloodDroughtScatterChart = props => {
 
 
 
-export default FloodDroughtScatterChart
+export default CertifiedReductionsChart
