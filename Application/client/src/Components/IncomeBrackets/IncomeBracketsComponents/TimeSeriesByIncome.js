@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {getCountryCarbonEmissionInHighIncome, getCountryCarbonEmissionInLowIncome} from '../../../apiOperations'
 import '../IncomeBrackets.css';
-import { Line, LineChart, XAxis, YAxis, Label } from "recharts";
+import { Line, LineChart, XAxis, YAxis, Label, Tooltip } from "recharts";
 
 const TimeSeriesByIncome = props => {
     const [highIncome, setHighIncome] = useState([]);
@@ -95,15 +95,13 @@ const TimeSeriesByIncome = props => {
     }
 
     console.log(merged);
-
-
     
     return (
         <>
-        <div style={{
+        <div className = "left" style={{
             display: 'block', width: 700, padding: 30
         }}>
-        <h4>Carbon emission time series by income bracket </h4>
+        <h4 className ="charttitleIncome">Carbon emission time series by income bracket </h4>
    <LineChart
       width={600}
       height={400}
@@ -125,7 +123,7 @@ const TimeSeriesByIncome = props => {
           style={{ textAnchor: "middle" }}
         />
       </YAxis>
-      <Line dataKey="high_income_carbon_emissions" />
+      <Line dataKey="high_income_carbon_emissions" stroke="green"/>
       <Line dataKey="low_income_carbon_emissions" />
     </LineChart>
     </div>

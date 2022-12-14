@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { getTempChangeAndIncome, getCountryCarbonEmissionByIncome } from '../../../apiOperations'
 import '../IncomeBrackets.css';
 import { ScatterChart, Scatter, XAxis, 
-    YAxis, CartesianGrid, LabelList, ResponsiveContainer } from 'recharts';
-import CorrelationLabel from './ScatterChartLabel.js';
+    YAxis, CartesianGrid, LabelList, ResponsiveContainer, Label } from 'recharts';
+import ScatterChartLabel from './ScatterChartLabel.js';
 
 const ScatterChartCorrelation = props => {
     const [tempAndIncome, setTempAndIncome] = useState([]);
@@ -42,21 +42,34 @@ const ScatterChartCorrelation = props => {
 
     return (
         <>
-        <br></br>
-        <div style={{
-            display: 'block', width: 700, padding: 30
+        <div className = "left" style={{
+            display: 'block', width: 700, paddingTop: 0, paddingLeft: 20
         }}>
-        <h4>Change in emissions vs. Temperature change by Country Income</h4>
-        <ScatterChart width={500} height={300} margin={{
+        <h4 className = "charttitleIncome">Change in Emissions vs. Change in Temperature by Country Income</h4>
+        <ScatterChart width={600} height={400} margin={{
             top: 10,
             right: 150,
-            bottom: 10,
-            left: 10,
+            bottom: 20,
+            left: 20,
           }}>
             <CartesianGrid />
-            <XAxis type="number" dataKey="avg_change_in_emissions" />
-            <YAxis type="number" dataKey="temperature_change" />
-            <Scatter data={merged} fill="green" shape = {<CorrelationLabel data={merged}/>} >
+            <XAxis type="number" dataKey="avg_change_in_emissions">
+            <Label
+                    value={"Change in emissions 2000-2008"}
+                    position="bottom"
+                    style={{ textAnchor: "middle" }}
+                    buffer={10}
+                />
+                </XAxis>
+            <YAxis type="number" dataKey="temperature_change">  
+            <Label
+                    value={"Change in temperature 2000-2008"}
+                    position="left"
+                    angle={-90}
+                    style={{ textAnchor: "middle" }}
+                />
+                </YAxis>
+            <Scatter data={merged} fill="green" shape = {<ScatterChartLabel data={merged}/>} >
             </Scatter>
         </ScatterChart>
         <p></p>

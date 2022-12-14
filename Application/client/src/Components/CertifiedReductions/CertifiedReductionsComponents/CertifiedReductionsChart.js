@@ -43,11 +43,10 @@ const CertifiedReductionsChart = props => {
 
     return (
         <>
-        <br></br>
         <div className = "left" style={{
             display: 'block', width: 700, paddingTop: 0, paddingLeft: 20
         }}>
-        <h4 style={{color:" #006400"}} className = "charttitle">Certified Reduction Count in 2011 vs. Diff in Emissions 2000 - 2008</h4>
+        <h4 style={{color:"#006400"}} className = "charttitle">Certified Reduction Count in 2011 vs. Diff in Emissions 2000 - 2008</h4>
         <ScatterChart width={600} height={400} margin={{
             top: 30,
             right: 30,
@@ -74,7 +73,6 @@ const CertifiedReductionsChart = props => {
             <Tooltip content={<CustomTooltip/>} />
             <Scatter data={filteredReductions} fill="green"></Scatter>
         </ScatterChart>
-        <br></br>
         <small>Note: Serbia, SA, and Iran outliers were removed. Serbia reduced their emissions drastically, while SA and Iran had strong increases in carobon emissions</small>
         
         </div>

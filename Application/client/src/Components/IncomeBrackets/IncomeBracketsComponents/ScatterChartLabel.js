@@ -3,12 +3,12 @@ import '../IncomeBrackets.css';
 import { ScatterChart, Scatter, XAxis, 
     YAxis, CartesianGrid, LabelList, Dot } from 'recharts';
 
-const CorrelationLabel = props => {
+const ScatterChartLabel = props => {
     const cx = null;
     const cy = null;
     const r = null;
     
-    console.log(props);
+    // console.log(props);
 
     // console.log("printing ins correlation label", props.cx);
     return (
@@ -21,4 +21,4 @@ const CorrelationLabel = props => {
     )
 }
 
-export default CorrelationLabel
+export default ScatterChartLabel

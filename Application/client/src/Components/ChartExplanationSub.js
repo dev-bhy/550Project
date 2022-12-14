@@ -4,7 +4,7 @@ import './CertifiedReductions/CertifiedReductions.css';
 const ChartExplanation = props => {
     return (
         <>
-        <p className = 'right'>{props.text}</p> 
+        <p className = 'right' color={props.color}>{props.text}</p> 
         </>
     )
 }

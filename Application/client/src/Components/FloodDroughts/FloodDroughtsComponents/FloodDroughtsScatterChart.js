@@ -24,12 +24,12 @@ const FloodDroughtScatterChart = props => {
         let key = Object.keys(e)[2];
         let value = Object.values(e)[2];
         if ((Object.values(e)[2]<16)){
-            console.log("Key is", Object.keys(e)[2]);
+            // console.log("Key is", Object.keys(e)[2]);
             filteredFloodDrought.push(e);
         }
     })
 
-    console.log("printing filtered reductions", filteredFloodDrought);
+    // console.log("printing filtered reductions", filteredFloodDrought);
 
     const CustomTooltip = ({ active, payload, label }) => {
         if (active) {
@@ -44,7 +44,6 @@ const FloodDroughtScatterChart = props => {
 
     return (
         <>
-        <br></br>
         <div className = "left" style={{
             display: 'block', width: 700, paddingTop: 0, paddingLeft: 20
         }}>
@@ -75,7 +74,7 @@ const FloodDroughtScatterChart = props => {
             <Tooltip content={<CustomTooltip/>} />
             <Scatter data={filteredFloodDrought} fill="blue"></Scatter>
         </ScatterChart>
-        <br></br>
+
         <small>Note: Mongolia was removed as an outlier. Temperature change was {'>'} 20% and also had a lot of droughts/floods</small>
         
         </div>
