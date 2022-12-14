@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Overview from './Overview.js'
-import Correlation from './Correlation/Correlation.js'
 import '../styles/Main.css'
 import IncomeBrackets from './IncomeBrackets/IncomeBrackets.js'
 import FloodDroughts from './FloodDroughts/FloodDroughts.js'

@@ -329,6 +329,12 @@ async function getCountryIncomeZones(req, res) {
       results && res.json({ results })
       error && (res.json({ error }))
     });
+  } catch (error) {
+    console.log(error)
+    res.json({ error: error })
+
+  }
+}
 
 // Countries with flood drought
 async function getFloodDrought(req, res) {
