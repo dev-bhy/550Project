@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getAvgPrecs, getAvgTemps, getTempChange, getIncomes, getCarbons} from '../apiOperations'
+import { getAvgPrecs, getAvgTemps, getTempChange, getIncomes, getCarbons, getAvgTempsPerYear} from '../apiOperations'
 import WorldMap from './WorldMap';
 import IncomeMap from './IncomeMap';
 import { scaleLinear, scaleLog} from "d3-scale"
@@ -11,6 +11,7 @@ const Overview = props => {
     const [startYear, updateStartYear] = useState(1900);
     const [endYear, updateEndYear] = useState(2008);
     const [year, updateYear] = useState(2008);
+    const [tempYear, updateTempYear] = useState(2008)
     const [countryData, updateCountryData] = useState([]);
     const [dictionary, updateDictionary] = useState({})
     const [minValue, setMinValue] = useState(0);
@@ -37,7 +38,7 @@ const Overview = props => {
             case 'Temp':
                 return (
                     <>
-                <h2>Average Yearly Temperatures per Country</h2>
+                <h2>Average Yearly Temperatures per Country in {tempYear}</h2>
                 <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
@@ -119,7 +120,7 @@ const Overview = props => {
         let countryName;
         switch(dataType) {
             case 'Temp':
-                data = await getAvgTemps(1000);
+                data = await getAvgTempsPerYear(start);
                 propName = 'temperature'
                 countryName = 'country_name'
                 break;
@@ -184,7 +185,6 @@ const Overview = props => {
                     break; 
             }
             if(typeof(datum[propName]) == 'number' ) {
-                console.log(  datum[countryName])
                 
                 dict[datum[countryName]] = dict[datum[countryName]].toFixed(3);
             } else {
@@ -250,13 +250,23 @@ const Overview = props => {
             <>
             <p>Year: {year}</p>
             <input type="range" min='1991' max="2008" value={year} onChange={(e => {
-                console.log(e.target.value);
                 updateYear(e.target.value)
                 getData('Carbon', e.target.value);
                 
             })}/>
             </>
         )}
+        {currentDataType === 'Temp' && (
+            <>
+            <p>Year: {tempYear}</p>
+            <input type="range" id='temp-year' min='1838' max="2013" value={tempYear} onChange={(e => {
+                updateTempYear(e.target.value)
+                getData('Temp', e.target.value);
+                
+            })}/>
+            </>
+        )}
+        
         
         </>
     )

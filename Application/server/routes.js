@@ -4,7 +4,7 @@ const e = require('express');
 
 // TODO: fill in your connection details here
 const connection = mysql.createConnection({
-    host:  'database-1.cubxcb6baefx.us-east-1.rds.amazonaws.com',
+    host: 'database-1.cubxcb6baefx.us-east-1.rds.amazonaws.com',
     user: 'projectAdmin',
     password: '5500FinalProject!',
     port: '3306',
@@ -400,6 +400,26 @@ async function getCertifiedReductions(req, res) {
   }
 }
 
+async function getAvgTemps(req, res) {
+  let { year} = req.query;
+  !year &&  (year = 2008)
+  try {
+      const sql = `SELECT AVG(AveTemp) AS temperature, Country AS country_name
+       FROM TempCountry t
+       WHERE Year = '${year}'
+       GROUP BY Country, Year;`
+       connection.query(sql, (error, results) => {
+        results && res.json({ results})
+        error && res.json({error})
+        })
+
+  } catch (error) {
+    console.log(error)
+    res.json({ error: error })
+  } 
+
+}
+
 
 module.exports = {
     getCountryAvgTemp,
@@ -415,7 +435,8 @@ module.exports = {
     getCountryCarbonEmissions,
     getCountryCarbonEmissionInLowIncome,
     getFloodDrought,
-    getCertifiedReductions
+    getCertifiedReductions,
+    getAvgTemps
 }
 
 

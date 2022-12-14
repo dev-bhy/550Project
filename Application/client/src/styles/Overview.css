@@ -1,6 +1,6 @@
 #Map {
     border-style: solid;
-    width: 75%;
+    width: 60%;
     margin: auto;
 }
 
@@ -64,4 +64,8 @@
 
 #selected {
     background-color:rgb(9, 157, 242);
+}
+
+#temp-year {
+    width: 100%;
 }

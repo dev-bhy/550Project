@@ -190,3 +190,17 @@ export const getCertifiedReductions = async () => {
         console.log(error);
     }
 }
+
+export const getAvgTempsPerYear = async year => {
+    try{
+        const res = await axios.get(`${URL}/avgTemps`, {params: {year}});
+        if (res.status === 200) {
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}

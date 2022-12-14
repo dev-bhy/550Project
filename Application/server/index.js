@@ -3,7 +3,8 @@ const express = require('express');
 const routes = require('./routes')
 var cors = require('cors')
 const app = express();
-const port = 8000;
+require('dotenv').config();
+const port = process.env.PORT || 8000;
 
 app.use(cors({ credentials: false, origin: ['http://localhost:3000'] }));
 
@@ -21,9 +22,11 @@ app.get('/countryincome', routes.getCountryIncomeZones);
 app.get('/countrycarbon', routes.getCountryCarbonEmissions);
 app.get('/flooddrought', routes.getFloodDrought);
 app.get('/certifiedreductions', routes.getCertifiedReductions);
+app.get('/avgtemps', routes.getAvgTemps);
 
 
 app.get('/', (req, res) => {
+    res.json("hello")
 })
 
 app.listen(port, () => {
