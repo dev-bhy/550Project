@@ -45,6 +45,7 @@ const Overview = props => {
                                  maxColor={'#003d06'}
                                  defaultColor={'#8F928C'}
                                  units={'\u00B0 C'}
+                                 prefix={''}
                                  colorScale={colorScaleLinear}/>
                                  </>)
                         
@@ -59,6 +60,7 @@ const Overview = props => {
                                  maxColor={'#002b3d'}
                                  defaultColor={'#8F928C'}
                                  units={' in'}
+                                 prefix={''}
                                  colorScale={colorScaleLinear}/>
                                  </>)
             case 'TempChange':
@@ -71,6 +73,7 @@ const Overview = props => {
                                  maxColor={'#aeba00'}
                                  defaultColor={'#8F928C'}
                                  units={'\u00B0 C'}
+                                 prefix={'+'}
                                  colorScale={colorScaleLinear}/>
                         <h3>Average World Temperature Change: {computeAverageTempChange(countryData)}%</h3>
                                  </>)
@@ -91,6 +94,7 @@ const Overview = props => {
                                  minColor={'#ecdcf7'} 
                                  maxColor={'#42006e'}
                                  defaultColor={'#8F928C'}
+                                 prefix={''}
                                  units={' tons'}
                                  colorScale={colorScaleLog}/>
                                  </>)
@@ -148,29 +152,43 @@ const Overview = props => {
             Number(datum[propName]) > max && (max = datum[propName])
             switch(datum[countryName]) {
                 case 'United States':
+                    datum[countryName] = 'United States of America';
                     dict['United States of America'] = datum[propName];
                     break;
                 case 'Cote d\'Ivoire':
+                    datum[countryName] = 'Ivory Coast';
                     dict['Ivory Coast'] = datum[propName];
                     break;
                 case 'Serbia':
+                    datum[countryName] = 'Republic of Serbia';
                     dict['Republic of Serbia'] = datum[propName];
                     break;
                 case 'Congo, Rep.':
+                    datum[countryName] = 'Republic of the Congo';
                     dict['Republic of the Congo'] = datum[propName];
                     break;
                 case 'Tanzania':
+                    datum[countryName] = 'United Republic of Tanzania';
                     dict['United Republic of Tanzania'] = datum[propName];
                     break;
                 case 'Congo, Dem. Rep.':
+                    datum[countryName] = 'Democratic Republic of the Congo';
                     dict['Democratic Republic of the Congo'] = datum[propName];
                     break;
                 case 'Timor Leste':
+                    datum[countryName] = 'East Timor';
                     dict['East Timor'] =  datum[propName];
                     break;
                 default:
                     dict[datum[countryName]] = datum[propName];
                     break; 
+            }
+            if(typeof(datum[propName]) == 'number' ) {
+                console.log(  datum[countryName])
+                
+                dict[datum[countryName]] = dict[datum[countryName]].toFixed(3);
+            } else {
+                console.log(false);
             }
         })
         //console.log('min ' + min);

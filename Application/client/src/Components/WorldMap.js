@@ -4,7 +4,7 @@ import { scaleLinear, scaleLog} from "d3-scale"
 import ReactTooltip from 'react-tooltip'
 
 const WorldMap = props => {
-    const {minValue, maxValue, minColor, maxColor, defaultColor, dict, units, colorScale} = props
+    const {minValue, maxValue, minColor, maxColor, defaultColor, dict, units, colorScale, prefix} = props
     const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
     
@@ -30,7 +30,7 @@ const WorldMap = props => {
                 ReactTooltip.rebuild();
                 }}
                     id='tooltip' 
-                    data-tip={`${geo.properties.name}: ${dict[geo.properties.name]}${units}`}      
+                    data-tip={`${geo.properties.name}: ${(dict[geo.properties.name] > 0)?prefix + dict[geo.properties.name]:dict[geo.properties.name]}${units}`}      
                     key={geo.rsmKey} 
                     geography={geo} 
                     fill={dict[geo.properties.name]?colorScale(minValue, maxValue, minColor, maxColor, dict[geo.properties.name]): defaultColor}
