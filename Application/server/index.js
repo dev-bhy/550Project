@@ -5,8 +5,8 @@ var cors = require('cors')
 const app = express();
 require('dotenv').config();
 const port = process.env.PORT || 8000;
-
-app.use(cors({ credentials: false, origin: ['http://localhost:3000'] }));
+//{ credentials: false, origin: ['http://localhost:3000'] }
+app.use(cors());
 
 app.get('/avgtemp', routes.getCountryAvgTemp);
 app.get('/avgprec', routes.getCountryPrec);

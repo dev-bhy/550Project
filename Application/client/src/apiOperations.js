@@ -1,5 +1,5 @@
 import axios from 'axios'
-const URL = 'http://localhost:8000'
+const URL = 'https://cis550-final-backend.herokuapp.com'
 
 export const getAvgTemps = async limit => {
     try{
