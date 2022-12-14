@@ -1,0 +1,25 @@
+#topBar {
+    position: sticky;
+    height: 20%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-color: black;
+
+}
+
+.topBar-button {
+    background-color: white;
+    border-style: none;
+    padding: 2%;
+    color:rgb(9, 157, 242);
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.topBar-button:hover {
+    cursor: pointer;
+    background-color:rgb(9, 157, 242);
+    color: white;
+}

@@ -1,0 +1,67 @@
+#Map {
+    border-style: solid;
+    width: 75%;
+    margin: auto;
+}
+
+#mode-container {
+    display: flex;
+    margin-bottom: 0.5%;
+    justify-content: space-between;
+    background-color: rgb(184, 190, 196);
+    border-bottom-style: solid;
+}
+.mode-button {
+    border-style: none;
+    background-color: rgb(184, 190, 196);
+    padding: 1%;
+    color: white;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: black;
+
+}
+
+.mode-button:hover {
+    cursor: pointer;
+    color: rgb(9, 157, 242);
+    
+}
+
+.legend-item {
+    width: 4%;
+    height: 25px;
+    border-style: solid;
+    align-self: center;
+    margin: 0.5%;
+}
+
+.legend-item-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#low {
+    background-color: #de091b;
+}
+
+#lower-middle {
+    background-color: #de6209;
+}
+
+#upper-middle{
+    background-color: #ded009;
+
+}
+#high-nonOECD {
+    background-color: #09de1b;
+
+}
+#high-OECD {
+    background-color: #0985de;
+
+}
+
+#selected {
+    background-color:rgb(9, 157, 242);
+}

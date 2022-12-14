@@ -1,51 +1,115 @@
 import React, { useState, useEffect } from 'react'
-import { getAvgPrecs, getAvgTemps, getTempChange } from '../apiOperations'
+import { getAvgPrecs, getAvgTemps, getTempChange, getIncomes, getCarbons} from '../apiOperations'
 import WorldMap from './WorldMap';
-import ReactTooltip from 'react-tooltip'
-
+import IncomeMap from './IncomeMap';
+import { scaleLinear, scaleLog} from "d3-scale"
+import '../styles/Overview.css'
 
 
 const Overview = props => {
     const [currentDataType, updateCurrentDataType] = useState('Temp');
     const [startYear, updateStartYear] = useState(1900);
     const [endYear, updateEndYear] = useState(2008);
+    const [year, updateYear] = useState(2008);
     const [countryData, updateCountryData] = useState([]);
     const [dictionary, updateDictionary] = useState({})
     const [minValue, setMinValue] = useState(0);
     const [maxValue, setMaxValue] = useState(0);
 
+    const colorScaleLinear = (minValue, maxValue, minColor, maxColor, name) => {
+        let scale = scaleLinear()
+        .domain([Number(minValue),Number(maxValue)])
+        .range([minColor,maxColor])
+        return scale(name);
+    }
+
+    const colorScaleLog = (minValue, maxValue, minColor, maxColor, name) =>  {
+        let scale = scaleLog(name)
+        .domain([Number(minValue),Number(maxValue)])
+        .range([minColor,maxColor])
+        return scale(name)
+    }
+
+    
+
     const renderMap = ()  => {
         switch (currentDataType) {
             case 'Temp':
-                return <WorldMap minValue = {minValue} 
+                return (
+                    <>
+                <h2>Average Yearly Temperatures per Country</h2>
+                <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
                                  minColor={'#DAFFBE'} 
                                  maxColor={'#003d06'}
                                  defaultColor={'#8F928C'}
-                                 units={'\u00B0 C'}/>
+                                 units={'\u00B0 C'}
+                                 prefix={''}
+                                 colorScale={colorScaleLinear}/>
+                                 </>)
                         
             case 'Prec':
-                return <WorldMap minValue = {minValue} 
+                return(
+                    <>
+                    <h2>Average Yearly Precipitation Per Country</h2>
+                     <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
                                  minColor={'#6ec5eb'} 
                                  maxColor={'#002b3d'}
                                  defaultColor={'#8F928C'}
-                                 units={' in'}/>
+                                 units={' in'}
+                                 prefix={''}
+                                 colorScale={colorScaleLinear}/>
+                                 </>)
             case 'TempChange':
-                return <WorldMap minValue = {minValue} 
+                return ( <>
+                        <h2>Change in Average Yearly Temperatures Per Country from {startYear} to {endYear}</h2>
+                        <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
                                  minColor={'#f8ff96'} 
                                  maxColor={'#aeba00'}
                                  defaultColor={'#8F928C'}
-                                 units={'%'}/>
+                                 units={'\u00B0 C'}
+                                 prefix={'+'}
+                                 colorScale={colorScaleLinear}/>
+                        <h3>Average World Temperature Change: {computeAverageTempChange(countryData)}%</h3>
+                                 </>)
+            case 'Income':
+                return (<>
+                        <h2>Income Zone per Country</h2>
+                        <IncomeMap 
+                            dict={dictionary} 
+                            defaultColor={'#6a6b6b'}
+                            />     
+                        </>)
+            case 'Carbon':
+                return ( <>
+                        <h2>Average Yearly Carbon Emissions per Country in {year}</h2>
+                        <WorldMap minValue = {minValue} 
+                                 maxValue={maxValue} 
+                                 dict={dictionary}  
+                                 minColor={'#ecdcf7'} 
+                                 maxColor={'#42006e'}
+                                 defaultColor={'#8F928C'}
+                                 prefix={''}
+                                 units={' tons'}
+                                 colorScale={colorScaleLog}/>
+                                 </>)
+            
             default :
                 return <p>None Selected</p>
         }
      }
-    
+    const computeAverageTempChange = countryData => {
+        let sum = 0;
+        countryData.forEach(datum => {
+            sum += datum.Diff;
+        })
+        return sum/countryData.length;
+    }
      const getData = async (dataType, start, end)=> {
         let min = Number.MAX_VALUE
         let max = Number.MIN_VALUE
@@ -69,34 +133,68 @@ const Overview = props => {
                 propName = 'Diff'
                 countryName = 'country_name'
                 break;
+            case 'Income':
+                data = await getIncomes();
+                propName = 'income_group'
+                countryName = 'country_name'
+                break;
+            case 'Carbon':
+                data = await getCarbons(start);
+                propName = 'emission'
+                countryName = 'country_name'
+                break;
             default:
                 throw new Error('No datatype selected')
         }
         updateCountryData(data);
         data.forEach(datum => {
-            datum[propName] < min && (min = datum[propName])
-            datum[propName] > max && (max = datum[propName])
+            Number(datum[propName]) < min && (min = datum[propName])
+            Number(datum[propName]) > max && (max = datum[propName])
             switch(datum[countryName]) {
                 case 'United States':
+                    datum[countryName] = 'United States of America';
                     dict['United States of America'] = datum[propName];
                     break;
                 case 'Cote d\'Ivoire':
+                    datum[countryName] = 'Ivory Coast';
                     dict['Ivory Coast'] = datum[propName];
                     break;
                 case 'Serbia':
+                    datum[countryName] = 'Republic of Serbia';
                     dict['Republic of Serbia'] = datum[propName];
                     break;
                 case 'Congo, Rep.':
+                    datum[countryName] = 'Republic of the Congo';
                     dict['Republic of the Congo'] = datum[propName];
                     break;
                 case 'Tanzania':
+                    datum[countryName] = 'United Republic of Tanzania';
                     dict['United Republic of Tanzania'] = datum[propName];
+                    break;
+                case 'Congo, Dem. Rep.':
+                    datum[countryName] = 'Democratic Republic of the Congo';
+                    dict['Democratic Republic of the Congo'] = datum[propName];
+                    break;
+                case 'Timor Leste':
+                    datum[countryName] = 'East Timor';
+                    dict['East Timor'] =  datum[propName];
                     break;
                 default:
                     dict[datum[countryName]] = datum[propName];
                     break; 
             }
+            if(typeof(datum[propName]) == 'number' ) {
+                console.log(  datum[countryName])
+                
+                dict[datum[countryName]] = dict[datum[countryName]].toFixed(3);
+            } else {
+                console.log(false);
+            }
         })
+        //console.log('min ' + min);
+       // console.log('max ' + max);
+       dict['South Sudan'] = dict['Sudan']
+        
         setMaxValue(max)
         setMinValue(min)
         updateCountryData(data); 
@@ -104,78 +202,35 @@ const Overview = props => {
      }
 
     useEffect(() => {
-        
-        /*const setInitialTemps = async () => {
-            const temperatureData = await getAvgTemps(1000);
-            const temps = {};
-            let min = Number.MAX_VALUE
-            let max = Number.MIN_VALUE
-            temperatureData.forEach(temp => {
-                temp.temperature < min && (min = temp.temperature)
-                temp.temperature > max && (max = temp.temperature)
-                switch(temp.country_name) {
-                    case 'United States':
-                        temps['United States of America'] = temp.temperature;
-                        break;
-                    case 'Cote d\'Ivoire':
-                        temps['Ivory Coast'] = temp.temperature;
-                        break;
-                    case 'Serbia':
-                        temps['Republic of Serbia'] = temp.temperature;
-                        break;
-                    case 'Congo, Rep.':
-                        temps['Republic of the Congo'] = temp.temperature;
-                        break;
-                    case 'Tanzania':
-                        temps['United Republic of Tanzania'] = temp.temperature;
-                        break;
-                    default:
-                        temps[temp.country_name] = temp.temperature;
-                        break;      
-                }                         
-            })
-            setMaxValue(max)
-            setMinValue(min)
-            updateAvgTemps(temperatureData);
-            updateTempDictionary(temps);
-        }
-        setInitialTemps();*/
-        getData('Temp');
-        
+        getData('Temp');        
     }, [])
 
-
-
-   /* const renderAvgTemps = () => {
-        return currentData.map( (temp, index)=> {
-            console.log(temp);
-            return (
-                <div key={index}>
-                <h3>{temp.country_name}</h3>
-                <p>{temp.temperature}</p>
-                </div>
-            )
-        }
-
-        )
-    }*/
     return (
         <>
-        {/*renderAvgTemps()*/}
+        <div id='mode-container'>
+            <button id={(currentDataType==='Temp')?'selected': ''}className='mode-button' onClick={() => {
+                updateCurrentDataType('Temp');
+                getData('Temp')
+            }}>Temperatures</button>
+            <button id={(currentDataType==='Prec')?'selected': ''} className='mode-button' onClick={() => {
+                updateCurrentDataType('Prec')
+                getData('Prec')           
+            }}>Precipitation</button>
+            <button id={(currentDataType==='TempChange')?'selected': ''} className='mode-button' onClick={() => {
+                updateCurrentDataType('TempChange')
+                getData('TempChange', startYear, endYear)           
+            }}>Temperature Change by Year</button>
+            <button id={(currentDataType==='Income')?'selected': ''} className='mode-button' onClick={() => {
+                updateCurrentDataType('Income')
+                getData('Income')           
+            }}>Income Categories</button>
+            <button id={(currentDataType==='Carbon')?'selected': ''} className='mode-button' onClick={() => {
+                updateCurrentDataType('Carbon')
+                getData('Carbon')          
+            }}>Carbon Emissions by Year</button>
+        </div>
+
         {renderMap()}
-        
-        <button onClick={() => {
-            updateCurrentDataType('Temp');
-            getData('Temp')
-        }}>Temps</button>
-        <button onClick={() => {
-            updateCurrentDataType('Prec')
-            getData('Prec')           
-        }}>Precipitation</button>
-         <button onClick={() => {
-            updateCurrentDataType('TempChange')
-            getData('TempChange', startYear, endYear)           
-        }}>Get Temp Change</button>
         {currentDataType === 'TempChange' && (
             <>
                 <p>Start Year: {startYear}</p>
@@ -191,6 +246,18 @@ const Overview = props => {
                 })}/>
             </>
         )}
+        {currentDataType === 'Carbon' && (
+            <>
+            <p>Year: {year}</p>
+            <input type="range" min='1991' max="2008" value={year} onChange={(e => {
+                console.log(e.target.value);
+                updateYear(e.target.value)
+                getData('Carbon', e.target.value);
+                
+            })}/>
+            </>
+        )}
+        
         </>
     )
 }

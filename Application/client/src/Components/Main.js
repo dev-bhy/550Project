@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Overview from './Overview.js'
+import '../styles/Main.css'
 import IncomeBrackets from './IncomeBrackets/IncomeBrackets.js'
 import FloodDroughts from './FloodDroughts/FloodDroughts.js'
 import CertifiedReductions from './CertifiedReductions/CertifiedReductions.js'
@@ -25,10 +26,10 @@ const Main = props => {
     return (
         <>
             <div id='topBar'>
-                <button onClick={() => updateCurrentPage(0)}>Overview</button>
-                <button onClick={() => updateCurrentPage(1)}>Income Brackets</button>
-                <button onClick={() => updateCurrentPage(2)}>Flood Droughts</button>
-                <button onClick={() => updateCurrentPage(3)}>Certified Reductions</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(0)}>Overview</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(1)}>Income Brackets</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(2)}>Flood Droughts</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(3)}>Certified Reductions</button>
             </div>
             {renderCurrentPage(currentPage)}
         </>
