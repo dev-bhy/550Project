@@ -42,7 +42,7 @@ const IncomeBrackets = props => {
         <br></br>
         <br></br>
         
-        <div>
+        <div id='time-series'>
         <TimeSeriesByIncome/>
         <ChartExplanationSub color = "#03AC13" text="High Income Countries"/>
         <ChartExplanationSub color = "#0000FF" text="Low Income Countries"/>

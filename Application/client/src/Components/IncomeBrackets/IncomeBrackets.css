@@ -16,3 +16,7 @@
 .clearfix {
     display: block;
 }
+
+#time-series {
+    margin-top: 10%;
+}
