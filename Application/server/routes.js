@@ -294,6 +294,40 @@ async function getCountryAvgTempChange(req, res) {
   }
 }
 
+async function getCountryIncomeZones(req, res) {
+  try {
+    const sql = `SELECT CName AS country_name, group_name AS income_group
+                 FROM WB_CountryCode
+                 WHERE group_name NOT LIKE "Aggregates";`
+    connection.query(sql, (error, results) => {
+      results && res.json({ results })
+      error && (res.json({ error }))
+    });
+  } catch (error) {
+    console.log(error)
+    res.json({ error: error })
+  }
+}
+
+async function getCountryCarbonEmissions(req, res) {
+  let { year} = req.query;
+  !year &&  (year = 2008)
+  try {
+    const sql = `SELECT CName AS country_name, e${year} AS emission
+    FROM WB_Emissions
+    WHERE CCode NOT LIKE "Country Code" AND SCode LIKE "EN.ATM.CO2E.KT"`
+    connection.query(sql, (error, results) => {
+      results && res.json({ results })
+      error && (res.json({ error }))
+    });
+
+  } catch (error) {
+    console.log(error)
+    res.json({ error: error })
+
+  }
+}
+
 module.exports = {
     getCountryAvgTemp,
     getCountryPrec,
@@ -303,7 +337,9 @@ module.exports = {
     getCountryCarbonEmissionInHighIncome,
     getCountryTempAndPrec,
     getTempAndCarbonEmission,
-    getCountryAvgTempChange
+    getCountryAvgTempChange,
+    getCountryIncomeZones,
+    getCountryCarbonEmissions
 }
 
 

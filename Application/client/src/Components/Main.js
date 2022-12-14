@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Overview from './Overview.js'
 import Correlation from './Correlation/Correlation.js'
+import '../styles/Main.css'
 
 
 const renderCurrentPage = currentPage => {
@@ -19,8 +20,8 @@ const Main = props => {
     return (
         <>
             <div id='topBar'>
-                <button onClick={() => updateCurrentPage(0)}>Overview</button>
-                <button onClick={() => updateCurrentPage(1)}>Correlation</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(0)}>Overview</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(1)}>Correlation</button>
             </div>
             {renderCurrentPage(currentPage)}
         </>

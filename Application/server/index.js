@@ -16,6 +16,8 @@ app.get('/highincomecarbon', routes.getCountryCarbonEmissionInHighIncome);
 app.get('/tempprec', routes.getCountryTempAndPrec);
 app.get('/tempcarbon', routes.getTempAndCarbonEmission);
 app.get('/avgtempchange', routes.getCountryAvgTempChange);
+app.get('/countryincome', routes.getCountryIncomeZones);
+app.get('/countrycarbon', routes.getCountryCarbonEmissions);
 app.get('/', (req, res) => {
 })
 
