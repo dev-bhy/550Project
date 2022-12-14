@@ -35,7 +35,10 @@ const Overview = props => {
     const renderMap = ()  => {
         switch (currentDataType) {
             case 'Temp':
-                return <WorldMap minValue = {minValue} 
+                return (
+                    <>
+                <h2>Average Yearly Temperatures per Country</h2>
+                <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
                                  minColor={'#DAFFBE'} 
@@ -43,9 +46,13 @@ const Overview = props => {
                                  defaultColor={'#8F928C'}
                                  units={'\u00B0 C'}
                                  colorScale={colorScaleLinear}/>
+                                 </>)
                         
             case 'Prec':
-                return <WorldMap minValue = {minValue} 
+                return(
+                    <>
+                    <h2>Average Yearly Precipitation Per Country</h2>
+                     <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
                                  minColor={'#6ec5eb'} 
@@ -53,20 +60,23 @@ const Overview = props => {
                                  defaultColor={'#8F928C'}
                                  units={' in'}
                                  colorScale={colorScaleLinear}/>
+                                 </>)
             case 'TempChange':
                 return ( <>
+                        <h2>Change in Average Yearly Temperatures Per Country from {startYear} to {endYear}</h2>
                         <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
                                  minColor={'#f8ff96'} 
                                  maxColor={'#aeba00'}
                                  defaultColor={'#8F928C'}
-                                 units={'%'}
+                                 units={'\u00B0 C'}
                                  colorScale={colorScaleLinear}/>
                         <h3>Average World Temperature Change: {computeAverageTempChange(countryData)}%</h3>
                                  </>)
             case 'Income':
                 return (<>
+                        <h2>Income Zone per Country</h2>
                         <IncomeMap 
                             dict={dictionary} 
                             defaultColor={'#6a6b6b'}
@@ -74,6 +84,7 @@ const Overview = props => {
                         </>)
             case 'Carbon':
                 return ( <>
+                        <h2>Average Yearly Carbon Emissions per Country in {year}</h2>
                         <WorldMap minValue = {minValue} 
                                  maxValue={maxValue} 
                                  dict={dictionary}  
