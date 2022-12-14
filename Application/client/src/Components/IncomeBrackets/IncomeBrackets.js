@@ -11,10 +11,13 @@ const IncomeBrackets = props => {
         <>
         <div>
         <ScatterChartCorrelation/>
-        <ChartExplanation text="There isn't a strong correlation between temp change of a country and the flood and drought levels in our dataset."/>
-        <ChartExplanationSub text="Finland and Norway have had strong increases in temperatures. The effects are being felt by countries such as Swaziland and Malawi across the globe"/>
+        <ChartExplanation text="Lower middle income countries have increased their carbon production the most, but aren't suffering the consequences of climate change."/>
+        <ChartExplanationSub text="The temperature change is being felt most in upper middle income countries"/>
         </div>
         <div class="clearfix"></div>
+        <br></br>
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
         <br></br>
@@ -25,10 +28,13 @@ const IncomeBrackets = props => {
         
         <div>
         <TableImpactedCountries/>
-        <ChartExplanation text="There isn't a strong correlation between temp change of a country and the flood and drought levels in our dataset."/>
-        <ChartExplanationSub text="Finland and Norway have had strong increases in temperatures. The effects are being felt by countries such as Swaziland and Malawi across the globe"/>
+        <ChartExplanation text="There are certain countries that are suffering from increased temperatures, despite working on reducing carbon emissions."/>
+        <ChartExplanationSub text="Northern Eurpoean countries dominate this list."/>
         </div>
         <div class="clearfix"></div>
+        <br></br>
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
         <br></br>
@@ -38,9 +44,10 @@ const IncomeBrackets = props => {
         
         <div>
         <TimeSeriesByIncome/>
-        <ChartExplanationSub color = "#006400" text="High Income Countries"/>
-        <ChartExplanation text="There isn't a strong correlation between temp change of a country and the flood and drought levels in our dataset."/>
-        <ChartExplanationSub text="Finland and Norway have had strong increases in temperatures. The effects are being felt by countries such as Swaziland and Malawi across the globe"/>
+        <ChartExplanationSub color = "#03AC13" text="High Income Countries"/>
+        <ChartExplanationSub color = "#0000FF" text="Low Income Countries"/>
+        <ChartExplanation text="There is a stark difference in the amount of carbon produced based on income level."/>
+        <ChartExplanationSub text="Regardless of their income level, their carbon emissinon amounts are not declining."/>
         </div>
         <div class="clearfix"></div>
         <br></br>

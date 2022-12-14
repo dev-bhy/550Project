@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './CertifiedReductions/CertifiedReductions.css';
 
-const ChartExplanation = props => {
+const ChartExplanationSub = props => {
+    console.log(props.color);
+    const color = props.color;
     return (
         <>
-        <p className = 'right' color={props.color}>{props.text}</p> 
+        <p className = 'right' style={{color:color}}>{props.text}</p> 
         </>
     )
 }
@@ -12,4 +14,4 @@ const ChartExplanation = props => {
 
 
 
-export default ChartExplanation
+export default ChartExplanationSub
