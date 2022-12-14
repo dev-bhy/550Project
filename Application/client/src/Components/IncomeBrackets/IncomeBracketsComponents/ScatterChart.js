@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { getTempChangeAndIncome, getCountryCarbonEmissionByIncome } from '../../apiOperations'
-import './Correlation.css';
+import { getTempChangeAndIncome, getCountryCarbonEmissionByIncome } from '../../../apiOperations'
+import '../IncomeBrackets.css';
 import { ScatterChart, Scatter, XAxis, 
     YAxis, CartesianGrid, LabelList, ResponsiveContainer } from 'recharts';
-import CorrelationLabel from './CorrelationLabel.js';
+import CorrelationLabel from './ScatterChartLabel.js';
 
 const ScatterChartCorrelation = props => {
     const [tempAndIncome, setTempAndIncome] = useState([]);
@@ -28,32 +28,6 @@ const ScatterChartCorrelation = props => {
     }, [])
 
 
-    const renderTempIncome = () => {
-        return tempAndIncome.map( (temp, index)=> {
-            // console.log(temp);
-            return (
-                <div key={index}>
-                <h3>{temp.income_category}</h3>
-                <p>{temp.temperature_change}</p>
-                </div>
-            )
-        }
-        )
-    }
-
-    const renderCarbIncome = () => {
-        return carbAndIncome.map( (carb, index)=> {
-            // console.log(carb);
-            return (
-                <div key={index}>
-                <h3>{carb.income_category}</h3>
-                <p>{carb.avg_change_in_emissions}</p>
-                </div>
-            )
-        }
-        )
-    }
-
 
     let merged = [];
 
@@ -64,12 +38,15 @@ const ScatterChartCorrelation = props => {
         );
     }
 
-    console.log(merged);
+    // console.log(merged);
 
     return (
         <>
         <br></br>
-        <header>Change in emissions vs. Temperature change by Country Income</header>
+        <div style={{
+            display: 'block', width: 700, padding: 30
+        }}>
+        <h4>Change in emissions vs. Temperature change by Country Income</h4>
         <ScatterChart width={500} height={300} margin={{
             top: 10,
             right: 150,
@@ -83,6 +60,8 @@ const ScatterChartCorrelation = props => {
             </Scatter>
         </ScatterChart>
         <p></p>
+        
+        </div>
         </>
     )
 }

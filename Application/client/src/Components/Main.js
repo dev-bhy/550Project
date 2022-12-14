@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Overview from './Overview.js'
 import Correlation from './Correlation/Correlation.js'
 import '../styles/Main.css'
+import IncomeBrackets from './IncomeBrackets/IncomeBrackets.js'
+import FloodDroughts from './FloodDroughts/FloodDroughts.js'
+import CertifiedReductions from './CertifiedReductions/CertifiedReductions.js'
 
 
 const renderCurrentPage = currentPage => {
@@ -9,7 +12,11 @@ const renderCurrentPage = currentPage => {
         case 0:
             return <Overview />
         case 1:
-            return <Correlation/>
+            return <IncomeBrackets/>
+        case 2:
+            return <FloodDroughts/>
+        case 3:
+            return <CertifiedReductions/>                
         default:
             return <p>No page selected</p>
     }
@@ -21,7 +28,9 @@ const Main = props => {
         <>
             <div id='topBar'>
                 <button className='topBar-button' onClick={() => updateCurrentPage(0)}>Overview</button>
-                <button className='topBar-button' onClick={() => updateCurrentPage(1)}>Correlation</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(1)}>Income Brackets</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(2)}>Flood Droughts</button>
+                <button className='topBar-button' onClick={() => updateCurrentPage(3)}>Certified Reductions</button>
             </div>
             {renderCurrentPage(currentPage)}
         </>

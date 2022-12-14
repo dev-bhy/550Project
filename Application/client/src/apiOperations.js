@@ -101,3 +101,92 @@ export const getCarbons = async year => {
     }
 }
 
+export const getTempAndCarbonEmission = async () => {
+    try{
+        const res = await axios.get(`${URL}/tempcarbon`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+export const getCountryAvgTempChange = async () => {
+    try{
+        const res = await axios.get(`${URL}/avgtempchange`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+export const getCountryCarbonEmissionInHighIncome = async () => {
+    try{
+        const res = await axios.get(`${URL}/highincomecarbon`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+export const getCountryCarbonEmissionInLowIncome = async () => {
+    try{
+        const res = await axios.get(`${URL}/lowincomecarbon`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+export const getFloodDrought = async () => {
+    try{
+        const res = await axios.get(`${URL}/flooddrought`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
+export const getCertifiedReductions = async () => {
+    try{
+        const res = await axios.get(`${URL}/certifiedreductions`);
+        if (res.status === 200) {
+            console.log(res);
+            return res.data.results
+        } else {
+            console.log(res);
+        }
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
