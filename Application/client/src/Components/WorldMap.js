@@ -4,7 +4,7 @@ import { scaleLinear } from "d3-scale"
 import ReactTooltip from 'react-tooltip'
 
 const WorldMap = props => {
-    const {minValue, maxValue, minColor, maxColor, defaultColor, dict} = props
+    const {minValue, maxValue, minColor, maxColor, defaultColor, dict, units} = props
     const [content, setContent] = useState('');
     const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
@@ -14,7 +14,6 @@ const WorldMap = props => {
 
     return (
     <>
-    <p data-tip data-for='tooltip'> hi</p>
     <ComposableMap projection="geoMercator" width={2000}>
     
     <ZoomableGroup>
@@ -27,8 +26,9 @@ const WorldMap = props => {
           } else {
              return <Geography key={geo.rsmKey} geography={geo} />
           }*/
-          <Geography onMouseEnter={() => setContent(`${geo.properties.name}: ${dict[geo.properties.name]}`)}
-                    data-tip={`${geo.properties.name}: ${dict[geo.properties.name]}`}      
+          <Geography //onMouseEnter={() => setContent(`${geo.properties.name}: ${dict[geo.properties.name]}`)}
+                    id='tooltip' 
+                    data-tip={`${geo.properties.name}: ${dict[geo.properties.name]}${units}`}      
                     key={geo.rsmKey} 
                     geography={geo} 
                     fill={dict[geo.properties.name]?colorScale(dict[geo.properties.name]): defaultColor}/>      
@@ -36,6 +36,7 @@ const WorldMap = props => {
     </Geographies>
     </ZoomableGroup>
   </ComposableMap>
+  <ReactTooltip place='right'/>
   </>)
 }
 

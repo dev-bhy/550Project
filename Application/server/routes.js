@@ -274,7 +274,7 @@ async function getTempAndCarbonEmission(req, res) {
         results && (results1 = results)
         error && res.json({error})
         connection.query(sql2, (error, results) => {
-            if(results) res.json({ results1, results2: results})
+            if(results) res.json({ results})
                 
             error && res.json({error})
         });

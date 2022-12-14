@@ -1,0 +1,60 @@
+#Query 11: Mapping of country income bracket to country
+SELECT CCode, group_name AS income_group
+FROM WB_CountryCode
+WHERE group_name NOT LIKE "Aggregates";
+
+#Query 12: Carbon emissions by country
+#To get emission data for other years, replace e2008 with "e"+year in 1990-2008
+SELECT CCode, e2008 AS emission
+FROM WB_Emissions
+WHERE CCode NOT LIKE "Country Code";
+
+#Query 13: Top 10 countries with most droughts, floods, and extreme temperature
+SELECT CCode, SCode, Value AS droughts_floods
+FROM WB_Res r
+WHERE SCode LIKE "EN.CLC.MDAT.ZS"
+ORDER BY Value DESC
+LIMIT 10;
+
+#Query 14: Carbon emission of the above 10 countries
+#To get emission data for other years, replace e2008 with "e"+year in 1990-2008
+WITH c_list AS (SELECT CCode, SCode, Value AS droughts_floods
+FROM WB_Res r
+WHERE SCode LIKE "EN.CLC.MDAT.ZS"
+ORDER BY Value DESC
+LIMIT 10)
+SELECT c.CCode, e2008 AS emissions
+FROM c_list c INNER JOIN WB_Emissions e ON c.CCode = e.CCode;
+
+#Query 15: For top countries in average carbon emission change from 2000 to 2008,
+# find the number of reductions issued
+WITH c_list AS (SELECT CCode, SCode, Value AS certified_reduction
+FROM WB_Res r
+WHERE SCode = "EN.CLC.ICER" AND Year = 2011)
+SELECT c.CCode, c.certified_reduction, (e2008-e2000) AS diff_in_emissions
+FROM c_list c INNER JOIN WB_Emissions e ON c.CCode = e.CCode
+GROUP BY CCode
+ORDER BY c.certified_reduction DESC;
+
+#Query 16: Average world temperature since 1838
+SELECT AVG(AveTemp) AS avg_temp, Year
+FROM TempCountry t
+GROUP BY Year;
+
+#Query 17: Total world carbon emission
+SELECT e.e1990, e.e1991,e.e1992,e.e1993,e.e1994,e.e1995,e.e1996,e.e1997,e.e1998,e.e1999,e.e2000, e.e2001, e.e2002, e.e2003,
+       e.e2004, e.e2005, e.e2006, e.e2007, e.e2008
+FROM WB_Emissions e
+WHERE CCode = "WLD" AND SCode LIKE "EN.ATM.CO2E.KT";
+
+#Query 18: Number of flood and drop compared to percentage change in temperature
+WITH c_list AS (SELECT CCode, SCode, Value AS droughts_floods_2009
+FROM WB_Res r
+WHERE SCode LIKE "EN.CLC.MDAT.ZS"),
+temp_1900 AS (SELECT Country, AVG(AveTemp) AS avg_1900 FROM TempCountry WHERE Year = 1990 GROUP BY Country),
+temp_2008 AS (SELECT Country, AVG(AveTemp) AS avg_2008 FROM TempCountry WHERE Year = 2008 GROUP BY Country)
+SELECT c.CCode, (t2.avg_2008-t1.avg_1900)/t1.avg_1900 AS percent_temp_change, l.droughts_floods_2009
+FROM WB_CountryCode c INNER JOIN temp_1900 t1 ON c.CName = t1.Country
+                      INNER JOIN temp_2008 t2 ON c.CName = t1.Country
+                      INNER JOIN c_list l ON c.CCode = l.CCode
+GROUP BY c.CCode;
