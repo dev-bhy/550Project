@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Overview from './Overview.js'
-import Correlation from './Correlation/Correlation.js'
+import IncomeBrackets from './IncomeBrackets/IncomeBrackets.js'
 
 
 const renderCurrentPage = currentPage => {
@@ -8,7 +8,7 @@ const renderCurrentPage = currentPage => {
         case 0:
             return <Overview />
         case 1:
-            return <Correlation/>
+            return <IncomeBrackets/>
         default:
             return <p>No page selected</p>
     }
@@ -20,7 +20,7 @@ const Main = props => {
         <>
             <div id='topBar'>
                 <button onClick={() => updateCurrentPage(0)}>Overview</button>
-                <button onClick={() => updateCurrentPage(1)}>Correlation</button>
+                <button onClick={() => updateCurrentPage(1)}>Income Brackets</button>
             </div>
             {renderCurrentPage(currentPage)}
         </>

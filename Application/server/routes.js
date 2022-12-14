@@ -165,6 +165,32 @@ async function getCountryCarbonEmissionInHighIncome(req, res) {
 
 
 
+// Carbon emission trends of high-income countries
+async function getCountryCarbonEmissionInLowIncome(req, res) {
+  const { startYear = 1990, endYear = 2008 } = req.query;
+  const startYearInt = Number(startYear);
+  const endYearInt = Number(endYear);
+  try {
+    let i = startYearInt;
+    let sumSql = '';
+    while(i <= endYearInt) {
+      sumSql += ` e${i},`;
+      i++;
+    }
+    sumSql = sumSql.slice(0 , -1);
+    const sql = `SELECT c.CName AS Country_name,${sumSql} FROM WB_CountryCode c INNER JOIN WB_Emissions e ON c.CCode = e.CCode
+    WHERE c.Group_name = 'Low income';`;
+
+    connection.query(sql, (error, results) => {
+        results && res.json({ results})
+        error && res.json({error})
+    });
+  } catch (error) {
+    console.log(error)
+    res.json({ error: error })
+  }
+}
+
 
 
 // Climate change leads to more severe droughts when temperatrue are higher in months of low precipitation. Find countries with highest temperature among the top 20 countries with the least annual precipitation
@@ -294,6 +320,32 @@ async function getCountryAvgTempChange(req, res) {
   }
 }
 
+
+// Countries with the most precipitation
+async function getFloodDrought(req, res) {
+  try {
+    const sql = `WITH c_list AS (SELECT CCode, CName, SCode, Value AS droughts_floods_2009
+      FROM WB_Res r
+      WHERE SCode LIKE "EN.CLC.MDAT.ZS"),
+      temp_1900 AS (SELECT Country, AVG(AveTemp) AS avg_1900 FROM TempCountry WHERE Year = 1990 GROUP BY Country),
+      temp_2008 AS (SELECT Country, AVG(AveTemp) AS avg_2008 FROM TempCountry WHERE Year = 2008 GROUP BY Country)
+      SELECT c.CName, c.CCode, (t2.avg_2008-t1.avg_1900)/t1.avg_1900 AS percent_temp_change, l.droughts_floods_2009
+      FROM WB_CountryCode c INNER JOIN temp_1900 t1 ON c.CName = t1.Country
+                            INNER JOIN temp_2008 t2 ON c.CName = t1.Country
+                            INNER JOIN c_list l ON c.CCode = l.CCode
+      GROUP BY c.CCode
+      ORDER BY droughts_floods_2009 DESC;`;
+
+    connection.query(sql, (error, results) => {
+        results && res.json({ results})
+        error && res.json({error})
+    })
+  } catch (error) {
+    console.log(error)
+    res.json({ error: error })
+  }
+}
+
 module.exports = {
     getCountryAvgTemp,
     getCountryPrec,
@@ -303,7 +355,9 @@ module.exports = {
     getCountryCarbonEmissionInHighIncome,
     getCountryTempAndPrec,
     getTempAndCarbonEmission,
-    getCountryAvgTempChange
+    getCountryAvgTempChange,
+    getCountryCarbonEmissionInLowIncome,
+    getFloodDrought
 }
 
 

@@ -13,9 +13,12 @@ app.get('/tempchangeincome', routes.getTempChangeAndIncome);
 app.get('/regioncarbon', routes.getCountryCarbonEmissionByRegion);
 app.get('/incomecarbon', routes.getCountryCarbonEmissionByIncome);
 app.get('/highincomecarbon', routes.getCountryCarbonEmissionInHighIncome);
+app.get('/lowincomecarbon', routes.getCountryCarbonEmissionInLowIncome);
 app.get('/tempprec', routes.getCountryTempAndPrec);
 app.get('/tempcarbon', routes.getTempAndCarbonEmission);
 app.get('/avgtempchange', routes.getCountryAvgTempChange);
+app.get('/flooddrought', routes.getFloodDrought);
+
 app.get('/', (req, res) => {
 })
 
