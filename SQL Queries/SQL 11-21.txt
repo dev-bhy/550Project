@@ -58,3 +58,24 @@ FROM WB_CountryCode c INNER JOIN temp_1900 t1 ON c.CName = t1.Country
                       INNER JOIN temp_2008 t2 ON c.CName = t1.Country
                       INNER JOIN c_list l ON c.CCode = l.CCode
 GROUP BY c.CCode;
+# Query 19: Average temperature world
+SELECT AVG(AveTemp) AS average_temperature, t.Year
+FROM WB_CountryCode c INNER JOIN TempCountry t ON c.CName = t.Country
+WHERE group_name NOT LIKE "Aggregates"
+                AND t.Year<=2008 AND t.Year>=1990
+GROUP BY t.Year;
+
+# Query 20: High income nonOECD
+SELECT c.Group_name, AVG(AveTemp) AS average_temperature, t.Year
+FROM WB_CountryCode c INNER JOIN TempCountry t ON c.CName = t.Country
+WHERE group_name NOT LIKE "Aggregates" AND c.Group_name = 'High income: nonOECD'
+                AND t.Year<=2008 AND t.Year>=1990
+GROUP BY c.Group_name, t.Year;
+
+# Query 21: Combined
+SELECT c.Group_name, AVG(AveTemp) AS average_temperature, t.Year
+FROM WB_CountryCode c INNER JOIN TempCountry t ON c.CName = t.Country
+WHERE group_name NOT LIKE "Aggregates" AND c.Group_name = 'High income: OECD'
+                OR c.Group_name = 'High income: nonOECD'
+                AND t.Year<=2008 AND t.Year>=1990
+GROUP BY c.Group_name, t.Year;
